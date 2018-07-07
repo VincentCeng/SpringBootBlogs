@@ -1,0 +1,86 @@
+<%@ page language="java" contentType="text/html; charset=utf-8"
+	pageEncoding="utf-8"%>
+<!DOCTYPE html>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c"%>
+<%@ taglib uri="http://java.sun.com/jsp/jstl/fmt" prefix="fmt"%>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title>Insert title here</title>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/page/css/bootstrap.css">
+<link rel="stylesheet" href="<%=request.getContextPath()%>/page/css/bootstrap.min.css">
+<script type="text/javascript" src="<%=request.getContextPath()%>/page/js/jquery-3.2.1.min.js"></script>
+</head>
+<body>
+	<form action="<%=request.getContextPath()%>/login/post" method="post">
+		用户名：<input type="text" name="username" ><br />
+		密 码： <input type="text" name="password"><br />
+		<input type="submit" value="提交">
+	</form>
+	<br />
+	<form>
+		用户名：<input id="username" type="text" name="username"><br />
+		密 码： <input id="password" type="text" name="password"><br />
+		<input type="button" value="AJAX_LOGIN" onclick="upload()">
+	</form>
+	<script type="text/javascript">
+		function upload() {
+			$.ajax({
+				url : '<%=request.getContextPath()%>/login/post',
+				loadtip : true,
+				type : "POST",
+				dataType : 'json',
+				data : {
+					username : $("#username").val(),
+					password : $("#password").val()
+				},
+				success : function(resp) {
+					if (resp.code == 0) {
+						alert(resp.result)
+					} else {
+						alert(222);
+					}
+				}
+			});
+		}
+	</script>
+	
+	<form>
+		<input type="button" value="AJAX_LOGIN" onclick="test()">
+	</form>
+	<script type="text/javascript">
+		function test() {
+			$.ajax({
+				url : '<%=request.getContextPath()%>/test',
+				loadtip : true,
+				type : "POST",
+				dataType : 'json',
+				data : {
+					username : "asfdasf"
+				},
+				success : function(resp) {
+					if (resp.code == 0) {
+						alert(resp.msg)
+					} else {
+						alert(222);
+					}
+				}
+			});
+		}
+	</script>
+</body>
+</html>

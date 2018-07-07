@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" xmlns:th="http://www.thymeleaf.org"  
+      xmlns:sec="http://www.thymeleaf.org/thymeleaf-extras-springsecurity3"> 
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+<title></title>
+<script src="https://cdn.bootcss.com/jquery/3.2.1/jquery.slim.min.js"
+	integrity="sha384-KJ3o2DKtIkvYIK3UENzmM7KCkRr/rE9/Qpg6aAZGJwFDMVNA/GpGFF93hXpG5KkN"
+	crossorigin="anonymous"></script>
+<script src="https://cdn.bootcss.com/popper.js/1.12.9/umd/popper.min.js"
+	integrity="sha384-ApNbgh9B+Y1QKtv3Rn7W3mgPxhU9K/ScQsAP7hUibX39j7fakFPskvXusvfa0b4Q"
+	crossorigin="anonymous"></script>
+<script
+	src="https://cdn.bootcss.com/bootstrap/4.0.0/js/bootstrap.min.js"
+	integrity="sha384-JZR6Spejh4U02d8jOt6vLEHfe/JQGiRRSQQxSfFWpi1MquVdAyjUar5+76PVCmYl"
+	crossorigin="anonymous"></script>
+<link rel="stylesheet"
+	href="https://cdn.bootcss.com/bootstrap/4.0.0/css/bootstrap.min.css"
+	integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm"
+	crossorigin="anonymous">
+<script type="text/javascript" src="../js/jquery.min.js"></script>
+<link rel="stylesheet" href="../css/bootstrap.css" />
+<style>
+.progress-bar {
+	border-radius: 50%;
+}
+</style>
+</head>
+    <meta charset="UTF-8">
+    <meta name="keywords"content="我们是金关之星  关务软件">
+    <!--告诉浏览器网页的关键字-->
+    <meta name="description"content="我们是金关之星  关务软件">
+    <!--告诉浏览器网页的内容-->
+    <link rel="icon" href="/img/favicon.ico"  type="image/x-icon" />
+    <title>第三武士 • 智能关务云平台</title>
+</head>
+<body>
+	<div class="container">
+		<div class=".col-md-4 .center-block">
+				<div class="form-group">
+					<label for="exampleInputEmail1">用户名：</label> <input type="text"
+						class="form-control" id="username" placeholder="用户名" >
+				</div>
+				<div class="form-group">
+					<label for="exampleInputPassword1">Password</label> <input
+						type="password" class="form-control" id="password"
+						placeholder="密码">
+				</div>
+				<button type="submit" class="btn btn-default" onclick="upload()">Submit</button>
+		</div>
+	</div>
+	<script type="text/javascript">
+		function upload() {
+			debugger;
+			$.ajax({
+				url : '/login/post',
+				loadtip : true,
+				type : "POST",
+				dataType : 'json',
+				data : {
+					username : $("#username").val(),
+					password : $("#password").val()
+				},
+				success : function(resp) {
+					if (resp.code == 0) {
+						debugger;
+						location.href = "/index";
+					} else {
+						alert(222);
+					}
+				}
+			});
+		}
+	</script>
+</body>
+</html>

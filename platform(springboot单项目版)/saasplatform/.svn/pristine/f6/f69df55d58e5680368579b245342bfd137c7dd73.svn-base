@@ -1,0 +1,21 @@
+package com.saas.admin.service;
+
+import com.saas.admin.model.Permission;
+
+import java.util.ArrayList;
+import java.util.List;
+import java.util.Map;
+
+/**
+ * @Description
+ * @Author 张喜明
+ * @Date 2018/6/29 10:36
+ */
+public class UserPerssionService implements IUserPermissionService{
+
+    @Override
+    public List<Permission> findUserPerssion(String userId) {
+        return null;
+    }
+
+}

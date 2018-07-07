@@ -1,0 +1,103 @@
+package com.saas.admin.model;
+
+import java.io.Serializable;
+
+public class Permission implements Serializable {
+
+	private static final long serialVersionUID = 549584054460720088L;
+
+	private String pkPermissionId;
+
+    private String permissionCode ;
+
+    private String permissionParentCode;
+
+    private String permissionName;
+
+    //权限类型，1菜单，2按钮
+    private String permissionType;
+
+    //权限路径
+    private String permissionPath;
+
+    //状态
+    private String permissionStatus;
+
+    //权限菜单索引排序
+    private String permissionIndex;
+
+    //描述
+    private String permissionComment;
+
+    public String getPkPermissionId() {
+        return pkPermissionId;
+    }
+
+    public void setPkPermissionId(String pkPermissionId) {
+        this.pkPermissionId = pkPermissionId;
+    }
+
+    public String getPermissionCode() {
+        return permissionCode;
+    }
+
+    public void setPermissionCode(String permissionCode) {
+        this.permissionCode = permissionCode;
+    }
+
+    public String getPermissionParentCode() {
+        return permissionParentCode;
+    }
+
+    public void setPermissionParentCode(String permissionParentCode) {
+        this.permissionParentCode = permissionParentCode;
+    }
+
+    public String getPermissionName() {
+        return permissionName;
+    }
+
+    public void setPermissionName(String permissionName) {
+        this.permissionName = permissionName;
+    }
+
+    public String getPermissionType() {
+        return permissionType;
+    }
+
+    public void setPermissionType(String permissionType) {
+        this.permissionType = permissionType;
+    }
+
+    public String getPermissionPath() {
+        return permissionPath;
+    }
+
+    public void setPermissionPath(String permissionPath) {
+        this.permissionPath = permissionPath;
+    }
+
+    public String getPermissionStatus() {
+        return permissionStatus;
+    }
+
+    public void setPermissionStatus(String permissionStatus) {
+        this.permissionStatus = permissionStatus;
+    }
+
+    public String getPermissionIndex() {
+        return permissionIndex;
+    }
+
+    public void setPermissionIndex(String permissionIndex) {
+        this.permissionIndex = permissionIndex;
+    }
+
+    public String getPermissionComment() {
+        return permissionComment;
+    }
+
+    public void setPermissionComment(String permissionComment) {
+        this.permissionComment = permissionComment;
+    }
+}

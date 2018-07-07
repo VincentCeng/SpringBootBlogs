@@ -1,0 +1,33 @@
+package com.saas.admin.controller.error;
+
+import javax.servlet.http.HttpServletRequest;
+
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.saas.common.exception.ServiceException;
+import com.saas.common.json.JSONResult;
+import com.saas.common.param.ErrorCode;
+
+/**
+ * 自定义异常处理
+ * @ClassName: CustomExceptionHandler 
+ * @Description: TODO(这里用一句话描述这个类的作用) 
+ * @author Orchid
+ * @date 2018年6月22日 下午5:05:36 
+ *
+ */
+@ControllerAdvice  
+public class CustomExceptionHandler {  
+      
+    public static final String DEFAULT_ERROR_VIEW = "error";  
+      
+    @ExceptionHandler(value = ServiceException.class)  
+    @ResponseBody  
+    public JSONResult jsonExceptionHandler(HttpServletRequest req, Exception e) {  
+    	JSONResult ecologyResp = new JSONResult();
+        ecologyResp.setCode(ErrorCode.ERROT_FOR_ALL);
+        ecologyResp.setMsg(e.getMessage());
+        return ecologyResp;  
+    }  
+}

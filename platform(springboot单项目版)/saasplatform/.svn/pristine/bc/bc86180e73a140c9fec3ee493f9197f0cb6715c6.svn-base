@@ -1,0 +1,9 @@
+package com.saas.admin.service;
+
+import com.saas.admin.model.User;
+
+public interface UserService {
+	public final String name = "userService";
+	
+	User getById(Integer uid);
+}

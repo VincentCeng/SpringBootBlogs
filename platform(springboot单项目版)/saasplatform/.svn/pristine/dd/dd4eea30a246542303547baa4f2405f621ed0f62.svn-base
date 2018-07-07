@@ -1,0 +1,18 @@
+package com.saas.admin.service;
+
+import com.saas.admin.model.Role;
+import java.util.List;
+
+/**
+ * @Description
+ * @Author 张喜明
+ * @Date 2018/6/29 10:36
+ */
+public class UserRoleService implements IUserRoleService{
+
+    @Override
+    public List<Role> findUserRoles(String userId) {
+        return null;
+    }
+
+}

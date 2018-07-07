@@ -1,0 +1,18 @@
+package com.saas.admin.controller;
+
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import org.springframework.web.bind.annotation.RestController;
+
+import com.saas.common.json.JSONResult;
+
+@RestController
+@RequestMapping(value="request")
+public class RequestMappingController extends BaseController {
+	
+	@RequestMapping("")
+	public JSONResult exception() throws Exception{
+		throw new Exception("awefwfe");
+	}
+}

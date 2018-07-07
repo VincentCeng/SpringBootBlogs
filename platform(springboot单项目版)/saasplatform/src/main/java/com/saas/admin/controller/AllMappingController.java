@@ -1,0 +1,24 @@
+package com.saas.admin.controller;
+
+import org.springframework.stereotype.Controller;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.ResponseBody;
+import com.saas.common.exception.ServiceException;
+import com.saas.common.json.JSONResult;
+
+@Controller
+@RequestMapping(value="")
+public class AllMappingController extends BaseController {
+	
+	@RequestMapping("exception")
+	@ResponseBody
+	public JSONResult exception() throws Exception{
+		throw new Exception("awefwfe");
+	}
+	
+	@RequestMapping("custom/exception")
+	@ResponseBody
+	public JSONResult ServiceException() throws Exception{
+		throw new ServiceException("awefwfe");
+	}
+}
