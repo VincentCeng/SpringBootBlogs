@@ -25,27 +25,27 @@
 		</javaTypeResolver>
 
 		<!-- 生成模型的包名和位置 -->
-		<javaModelGenerator targetPackage="com.saas.admin.model.information"
+		<javaModelGenerator targetPackage="com.saas.admin.model.inforImg"
 			targetProject="saasplatform\src\main\java">
 			<property name="enableSubPackages" value="false" />
 			<property name="trimStrings" value="true" />
 		</javaModelGenerator>
 
 		<!-- 生成的映射文件包名和位置 -->
-		<sqlMapGenerator targetPackage="com.saas.admin.mapper.informationMapper"
+		<sqlMapGenerator targetPackage="com.saas.admin.mapper.inforImgMapper"
 			targetProject="saasplatform\src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</sqlMapGenerator>
 
 		<!-- 生成DAO的包名和位置 -->
 		<javaClientGenerator type="XMLMAPPER"
-			targetPackage="com.saas.admin.mapper.informationMapper"
+			targetPackage="com.saas.admin.mapper.inforImgMapper"
 			targetProject="saasplatform\src\main\java">
 			<property name="enableSubPackages" value="true" />
 		</javaClientGenerator>
 
 		<!-- 要生成那些表(更改tableName和domainObjectName就可以) -->
-		<table tableName="information" domainObjectName="Information"
+		<table tableName="info_img" domainObjectName="InforImg"
 			enableCountByExample="false" enableUpdateByExample="false"
 			enableDeleteByExample="false" enableSelectByExample="false"
 			selectByExampleQueryId="false" />

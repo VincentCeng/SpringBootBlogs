@@ -28,7 +28,7 @@ public class InitMethod implements ApplicationRunner{
     public void run(ApplicationArguments var1) throws Exception{
     	//加载权限的方法
 		rolePermissionService.init();
-		System.out.println("init_success");
+		System.out.println("初始化所有的权限");
     }
 
 }
