@@ -1,6 +1,10 @@
 package com.saas.admin.mapper.informationMapper;
 
+import org.apache.ibatis.annotations.Param;
+
+import com.github.pagehelper.Page;
 import com.saas.admin.model.information.Information;
+import com.saas.mybatis.plugins.BaseConditionVO;
 
 public interface InformationMapper {
     int deleteByPrimaryKey(Integer id);
@@ -16,4 +20,6 @@ public interface InformationMapper {
     int updateByPrimaryKeyWithBLOBs(Information record);
 
     int updateByPrimaryKey(Information record);
+    
+    Page<Information> findInformationByVo(@Param("vo")BaseConditionVO vo);
 }

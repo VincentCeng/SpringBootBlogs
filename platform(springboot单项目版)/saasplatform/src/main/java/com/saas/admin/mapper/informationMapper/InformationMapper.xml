@@ -46,6 +46,22 @@
     from information
     where id = #{id,jdbcType=INTEGER}
   </select>
+  
+  <!-- 分页查询 -->
+  <select id="findInformationByVo" resultMap="BaseResultMap">
+      select <include refid="Base_Column_List" />
+    from information
+  <!-- 
+    <where>
+        <if test="vo.title != null">
+            username = #{vo.title}
+        </if>
+    </where>
+   -->
+  
+  </select>
+  
+  
   <delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
     delete from information
     where id = #{id,jdbcType=INTEGER}
