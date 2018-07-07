@@ -11,6 +11,7 @@ public class SaasplatformApplicationTests {
 
 	@Test
 	public void contextLoads() {
+		System.out.println("dasd");
 	}
 
 }
