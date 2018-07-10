@@ -1,31 +1,46 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.saas.admin.mapper.informationMapper.InformationMapper">
-	<resultMap id="BaseResultMap" type="com.saas.admin.model.information.Information">
+<mapper
+	namespace="com.saas.admin.mapper.informationMapper.InformationMapper">
+	<resultMap id="BaseResultMap"
+		type="com.saas.admin.model.information.Information">
 		<id column="id" jdbcType="INTEGER" property="id" />
-		<result column="template_type" jdbcType="INTEGER" property="templateType" />
-		<result column="content_type" jdbcType="INTEGER" property="contentType" />
+		<result column="template_type" jdbcType="INTEGER"
+			property="templateType" />
+		<result column="content_type" jdbcType="INTEGER"
+			property="contentType" />
 		<result column="title" jdbcType="VARCHAR" property="title" />
-		<result column="attention" jdbcType="INTEGER" property="attention" />
+		<result column="attention" jdbcType="INTEGER"
+			property="attention" />
 		<result column="istop" jdbcType="INTEGER" property="istop" />
-		<result column="isrecommend" jdbcType="INTEGER" property="isrecommend" />
-		<result column="publisher" jdbcType="VARCHAR" property="publisher" />
-		<result column="publish_type" jdbcType="INTEGER" property="publishType" />
-		<result column="publish_time" jdbcType="TIMESTAMP" property="publishTime" />
+		<result column="isrecommend" jdbcType="INTEGER"
+			property="isrecommend" />
+		<result column="publisher" jdbcType="VARCHAR"
+			property="publisher" />
+		<result column="publish_type" jdbcType="INTEGER"
+			property="publishType" />
+		<result column="publish_time" jdbcType="TIMESTAMP"
+			property="publishTime" />
 		<result column="isatlas" jdbcType="INTEGER" property="isatlas" />
 		<result column="imgnum" jdbcType="INTEGER" property="imgnum" />
-		<result column="video_url" jdbcType="VARCHAR" property="videoUrl" />
-		<result column="isadvertising" jdbcType="INTEGER" property="isadvertising" />
-		<result column="advertising_url" jdbcType="VARCHAR" property="advertisingUrl" />
-		<result column="create_time" jdbcType="TIMESTAMP" property="createTime" />
-		<result column="update_time" jdbcType="TIMESTAMP" property="updateTime" />
+		<result column="video_url" jdbcType="VARCHAR"
+			property="videoUrl" />
+		<result column="isadvertising" jdbcType="INTEGER"
+			property="isadvertising" />
+		<result column="advertising_url" jdbcType="VARCHAR"
+			property="advertisingUrl" />
+		<result column="create_time" jdbcType="TIMESTAMP"
+			property="createTime" />
+		<result column="update_time" jdbcType="TIMESTAMP"
+			property="updateTime" />
 		<result column="state" jdbcType="INTEGER" property="state" />
 		<result column="isvip" jdbcType="INTEGER" property="isvip" />
 		<result column="sort" jdbcType="DOUBLE" property="sort" />
 		<result column="support" jdbcType="INTEGER" property="support" />
 		<result column="ispull" jdbcType="INTEGER" property="ispull" />
 		<result column="tjtop" jdbcType="INTEGER" property="tjtop" />
-		<result column="dayAttention" jdbcType="INTEGER" property="dayattention" />
+		<result column="dayAttention" jdbcType="INTEGER"
+			property="dayattention" />
 	</resultMap>
 	<resultMap extends="BaseResultMap" id="ResultMapWithBLOBs"
 		type="com.saas.admin.model.information.Information">
@@ -44,8 +59,8 @@
 	<sql id="Blob_Column_List">
 		text
 	</sql>
-	<select id="selectByPrimaryKey" parameterType="java.lang.Integer"
-		resultMap="ResultMapWithBLOBs">
+	<select id="selectByPrimaryKey"
+		parameterType="java.lang.Integer" resultMap="ResultMapWithBLOBs">
 		select
 		<include refid="Base_Column_List" />
 		,
@@ -65,12 +80,14 @@
 	</select>
 
 
-	<delete id="deleteByPrimaryKey" parameterType="java.lang.Integer">
+	<delete id="deleteByPrimaryKey"
+		parameterType="java.lang.Integer">
 		delete from
 		information
 		where id = #{id,jdbcType=INTEGER}
 	</delete>
-	<insert id="insert" parameterType="com.saas.admin.model.information.Information">
+	<insert id="insert"
+		parameterType="com.saas.admin.model.information.Information">
 		insert into information (id,
 		template_type, content_type,
 		title, attention, istop,
@@ -78,34 +95,44 @@
 		publisher, publish_type,
 		publish_time, isatlas, imgnum,
 		video_url,
-		isadvertising, advertising_url,
+		isadvertising,
+		advertising_url,
 		create_time, update_time, state,
 		isvip,
 		sort, support,
 		ispull, tjtop, dayAttention,
 		text)
 		values
-		(#{id,jdbcType=INTEGER}, #{templateType,jdbcType=INTEGER},
+		(#{id,jdbcType=INTEGER},
+		#{templateType,jdbcType=INTEGER},
 		#{contentType,jdbcType=INTEGER},
 		#{title,jdbcType=VARCHAR},
-		#{attention,jdbcType=INTEGER}, #{istop,jdbcType=INTEGER},
-		#{isrecommend,jdbcType=INTEGER}, #{publisher,jdbcType=VARCHAR},
+		#{attention,jdbcType=INTEGER},
+		#{istop,jdbcType=INTEGER},
+		#{isrecommend,jdbcType=INTEGER},
+		#{publisher,jdbcType=VARCHAR},
 		#{publishType,jdbcType=INTEGER},
 		#{publishTime,jdbcType=TIMESTAMP},
-		#{isatlas,jdbcType=INTEGER}, #{imgnum,jdbcType=INTEGER},
-		#{videoUrl,jdbcType=VARCHAR}, #{isadvertising,jdbcType=INTEGER},
+		#{isatlas,jdbcType=INTEGER},
+		#{imgnum,jdbcType=INTEGER},
+		#{videoUrl,jdbcType=VARCHAR},
+		#{isadvertising,jdbcType=INTEGER},
 		#{advertisingUrl,jdbcType=VARCHAR},
 		#{createTime,jdbcType=TIMESTAMP},
-		#{updateTime,jdbcType=TIMESTAMP}, #{state,jdbcType=INTEGER},
-		#{isvip,jdbcType=INTEGER}, #{sort,jdbcType=DOUBLE},
+		#{updateTime,jdbcType=TIMESTAMP},
+		#{state,jdbcType=INTEGER},
+		#{isvip,jdbcType=INTEGER},
+		#{sort,jdbcType=DOUBLE},
 		#{support,jdbcType=INTEGER},
 		#{ispull,jdbcType=INTEGER},
-		#{tjtop,jdbcType=INTEGER}, #{dayattention,jdbcType=INTEGER},
+		#{tjtop,jdbcType=INTEGER},
+		#{dayattention,jdbcType=INTEGER},
 		#{text,jdbcType=LONGVARCHAR})
 	</insert>
 
 	<!--增加返回主键id useGeneratedKeys="true" keyProperty="id" -->
-	<insert id="insertSelective" parameterType="com.saas.admin.model.information.Information"
+	<insert id="insertSelective"
+		parameterType="com.saas.admin.model.information.Information"
 		useGeneratedKeys="true" keyProperty="id">
 		insert into information
 		<trim prefix="(" suffix=")" suffixOverrides=",">
@@ -263,7 +290,8 @@
 			</if>
 		</trim>
 	</insert>
-	<update id="updateByPrimaryKeySelective" parameterType="com.saas.admin.model.information.Information">
+	<update id="updateByPrimaryKeySelective"
+		parameterType="com.saas.admin.model.information.Information">
 		update information
 		<set>
 			<if test="templateType != null">
@@ -341,15 +369,19 @@
 		</set>
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKeyWithBLOBs" parameterType="com.saas.admin.model.information.Information">
+	<update id="updateByPrimaryKeyWithBLOBs"
+		parameterType="com.saas.admin.model.information.Information">
 		update
 		information
-		set template_type = #{templateType,jdbcType=INTEGER},
-		content_type = #{contentType,jdbcType=INTEGER},
+		set template_type =
+		#{templateType,jdbcType=INTEGER},
+		content_type =
+		#{contentType,jdbcType=INTEGER},
 		title =
 		#{title,jdbcType=VARCHAR},
 		attention = #{attention,jdbcType=INTEGER},
-		istop = #{istop,jdbcType=INTEGER},
+		istop =
+		#{istop,jdbcType=INTEGER},
 		isrecommend =
 		#{isrecommend,jdbcType=INTEGER},
 		publisher =
@@ -382,9 +414,11 @@
 		#{text,jdbcType=LONGVARCHAR}
 		where id = #{id,jdbcType=INTEGER}
 	</update>
-	<update id="updateByPrimaryKey" parameterType="com.saas.admin.model.information.Information">
+	<update id="updateByPrimaryKey"
+		parameterType="com.saas.admin.model.information.Information">
 		update information
-		set template_type = #{templateType,jdbcType=INTEGER},
+		set template_type =
+		#{templateType,jdbcType=INTEGER},
 		content_type =
 		#{contentType,jdbcType=INTEGER},
 		title = #{title,jdbcType=VARCHAR},
