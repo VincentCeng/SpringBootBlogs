@@ -19,82 +19,98 @@
 <body>
 	<form id="formId" method="post">
 		<h1>ajax使用spring mvc提供的类的方法上传文件</h1>
-		<input type="file" name="img"> 
-		<select name="type">
-			<option value="1" >123</option>
-			<option value="2" >2</option>
-		</select>
-		<input type="file" name="head"> 
-		<input type="file" name="file"> 
-		<input type="submit" onclick="upload()" value="提交"/>
+		<input type="file" name="img"> <select name="type">
+			<option value="1">123</option>
+			<option value="2">2</option>
+		</select> <input type="file" name="head"> <input type="file"
+			name="file"> <input type="submit" onclick="upload()"
+			value="提交" />
 	</form>
 	<button onclick="logout()" value="退出登录">退出登录</button>
-<button onclick="test()" value="获得类型">创建月</button>
-<button onclick="testAjax()" value="获得类型">测试AJAX异常</button>
-<button onclick="testAjaxCustom()" value="获得类型">测试AJAX自定义异常</button>
-<br/>
+	<button onclick="test()" value="获得类型">创建月</button>
+	<button onclick="testAjax()" value="获得类型">测试AJAX异常</button>
+	<button onclick="testAjaxCustom()" value="获得类型">测试AJAX自定义异常</button>
+	<button onclick="testGetAllInformation()" value="获得类型">获取所有资讯</button>
+	<br />
 </body>
 <script type="text/javascript">
-function testAjaxCustom() {
-	$.ajax({
-		url : '/custom/exception',
-		loadtip : true,
-		type : "POST",
-		dataType : 'json',
-		success : function(resp) {
-			if (resp.code == 0) {
-				i++;
-				createPayRecordMonth();
-			} else {
-				alert(resp.msg);
-			}
-		}
-	});
-}
-function testAjax() {
-	$.ajax({
-		url : '/exception',
-		loadtip : true,
-		type : "POST",
-		dataType : 'json',
-		success : function(resp) {
-			if (resp.code == 0) {
-				i++;
-				createPayRecordMonth();
-			} else {
-				alert(resp.msg);
-			}
-		}
-	});
-}
-function test() {
-	$.ajax({
-		url : '/hyplatform/test',
-		loadtip : true,
-		type : "POST",
-		dataType : 'json',
-		data:{
-			'limit':date,
-			'offset':date
-		},
-		success : function(resp) {
-			if (resp.code == 0) {
-				i++;
-				createPayRecordMonth();
-			} else {
-				alert(resp.msg);
-			}
-		}
-	});
-}
-	function logout() {
+	function testAjaxCustom() {
 		$.ajax({
-			url : '/SpringMvc/logout',
+			url : '/custom/exception',
 			loadtip : true,
 			type : "POST",
 			dataType : 'json',
 			success : function(resp) {
-				debugger;
+				if (resp.code == 0) {
+					i++;
+					createPayRecordMonth();
+				} else {
+					alert(resp.msg);
+				}
+			}
+		});
+	}
+
+	function testGetAllInformation() {
+		$.ajax({
+			url : '/getAllInformation',
+			loadtip : true,
+			type : "POST",
+			dataType : 'json',
+			success : function(resp) {
+				if (resp.code == 0) {
+					i++;
+				} else {
+					alert(resp.msg);
+				}
+			}
+		});
+	}
+
+	function testAjax() {
+		$.ajax({
+			url : '/exception',
+			loadtip : true,
+			type : "POST",
+			dataType : 'json',
+			success : function(resp) {
+				if (resp.code == 0) {
+					i++;
+					createPayRecordMonth();
+				} else {
+					alert(resp.msg);
+				}
+			}
+		});
+	}
+	function test() {
+		$.ajax({
+			url : '/hyplatform/test',
+			loadtip : true,
+			type : "POST",
+			dataType : 'json',
+			data : {
+				'limit' : date,
+				'offset' : date
+			},
+			success : function(resp) {
+				if (resp.code == 0) {
+					i++;
+					createPayRecordMonth();
+				} else {
+					alert(resp.msg);
+				}
+			}
+		});
+	}
+	function logout() {
+		$.ajax({
+			url : '/logout',
+			loadtip : true,
+			type : "POST",
+			dataType : 'json',
+			success : function(resp) {
+				/* debugger; */
 				if (resp.code == 0) {
 					alert(resp.msg);
 				} else {
