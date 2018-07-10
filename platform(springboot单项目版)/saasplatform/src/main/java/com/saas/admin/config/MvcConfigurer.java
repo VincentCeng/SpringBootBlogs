@@ -8,7 +8,7 @@ import org.springframework.format.FormatterRegistry;
 import org.springframework.format.datetime.DateFormatter;
 import org.springframework.http.converter.HttpMessageConverter;
 import org.springframework.validation.MessageCodesResolver;
-import org.springframework.validation.Validator; 
+import org.springframework.validation.Validator;
 import org.springframework.web.method.support.HandlerMethodArgumentResolver;
 import org.springframework.web.method.support.HandlerMethodReturnValueHandler;
 import org.springframework.web.servlet.HandlerExceptionResolver;
@@ -64,6 +64,7 @@ public class MvcConfigurer implements WebMvcConfigurer {
 	/**
 	 * 添加拦截器
 	 */
+
 	@Override
 	public void addInterceptors(InterceptorRegistry registry) {
 //		registry.addInterceptor(new CustomInterceptor()).addPathPatterns("/api/**");
@@ -87,11 +88,11 @@ public class MvcConfigurer implements WebMvcConfigurer {
 	 */
 	@Override
 	public void addCorsMappings(CorsRegistry registry) {
-		//对api开头的请求允许跨域访问
-		//允许的方法为post与get
-		registry.addMapping("/api/**").allowedMethods("POST","GET").
-		//允许百度的域名访问
-		allowedOrigins("www.baidu.com");
+		// 对api开头的请求允许跨域访问
+		// 允许的方法为post与get
+		registry.addMapping("/api/**").allowedMethods("POST", "GET").
+		// 允许百度的域名访问
+				allowedOrigins("www.baidu.com");
 	}
 
 	@Override
@@ -153,5 +154,4 @@ public class MvcConfigurer implements WebMvcConfigurer {
 		// TODO Auto-generated method stub
 		return WebMvcConfigurer.super.getMessageCodesResolver();
 	}
-
 }
