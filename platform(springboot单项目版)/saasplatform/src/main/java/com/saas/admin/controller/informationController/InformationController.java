@@ -35,6 +35,7 @@ import com.saas.mybatis.plugins.BaseConditionVO;
  * 
  */
 @Controller
+//@RequestMapping(value="api/free")
 public class InformationController extends BaseController {
 	Logger log = LoggerFactory.getLogger("InformationController");
 	/**
@@ -50,7 +51,7 @@ public class InformationController extends BaseController {
 	/*
 	 * 后台分页查询
 	 */
-	@RequestMapping("getAllInformation")
+	@RequestMapping(value = "getAllInformation", method = RequestMethod.POST)
 	@ResponseBody
 	public JSONResult getAllInformation(BaseConditionVO vo) {
 		List<Information> list = informationService.getInformationByPage(vo);
