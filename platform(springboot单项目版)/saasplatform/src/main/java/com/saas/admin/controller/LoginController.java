@@ -39,7 +39,7 @@ public class LoginController extends BaseController {
 	
 	@RequestMapping("login/test")
 	public String loginTest(){
-		return "loginTest";
+		return "login";
 	}
 	
 	@RequestMapping("index")

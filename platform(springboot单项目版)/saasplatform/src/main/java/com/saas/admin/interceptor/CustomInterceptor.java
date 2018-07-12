@@ -13,6 +13,9 @@ import com.saas.admin.model.User;
 import com.saas.common.json.JSONResult;
 import com.saas.commons.util.StringUtils;
 
+/*
+ * 拦截过滤
+ */
 public class CustomInterceptor implements HandlerInterceptor {
 
 	@Override
@@ -23,9 +26,9 @@ public class CustomInterceptor implements HandlerInterceptor {
 			String token = request.getHeader("token");
 			String uid = request.getParameter("uid");
 			String md5 = null;
-			//token处理
+			// token处理
 			if (token != null) {
-				if (!url.contains("/api/")){
+				if (!url.contains("/api/")) {
 					response.setCharacterEncoding("UTF-8");
 					response.setContentType("application/json;charset=UTF-8");
 					JSONResult jsonResult = new JSONResult();
@@ -34,12 +37,12 @@ public class CustomInterceptor implements HandlerInterceptor {
 					response.getWriter().write(JSON.toJSONString(jsonResult));
 					return false;
 				}
-				md5 ="tokenKey";
+				md5 = "tokenKey";
 				if (token.equals(md5)) {
-					//登陆,无u_token路径
-					if (url.contains("/api/login") || url.contains("/api/free")){
+					// 登陆,无u_token路径
+					if (url.contains("/api/login") || url.contains("/api/free")) {
 						return true;
-					}else{
+					} else {
 						response.setCharacterEncoding("UTF-8");
 						response.setContentType("application/json;charset=UTF-8");
 						JSONResult jsonResult = new JSONResult();
@@ -49,7 +52,7 @@ public class CustomInterceptor implements HandlerInterceptor {
 						return false;
 					}
 					// 如果得到的token在返回的所有token中,则该用户在登陆状态,可以访问所有api移动端接口
-				} else if (StringUtils.isNumeric(uid) == false){
+				} else if (StringUtils.isNumeric(uid) == false) {
 					response.setCharacterEncoding("UTF-8");
 					response.setContentType("application/json;charset=UTF-8");
 					JSONResult jsonResult = new JSONResult();
@@ -59,12 +62,12 @@ public class CustomInterceptor implements HandlerInterceptor {
 					return false;
 				}
 			}
-			User user = (User)SecurityUtils.getSubject().getPrincipal();
-			if (user != null){
+			User user = (User) SecurityUtils.getSubject().getPrincipal();
+			if (user != null) {
 				return true;
 			}
 			// 当返回true的时候,继续向下执行到controller
-            response.setHeader("sessionstatus", "timeout");
+			response.setHeader("sessionstatus", "timeout");
 			response.setCharacterEncoding("UTF-8");
 			response.setContentType("application/json;charset=UTF-8");
 			JSONResult jsonResult = new JSONResult();

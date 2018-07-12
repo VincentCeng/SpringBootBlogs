@@ -51,7 +51,7 @@ public class InformationController extends BaseController {
 	/*
 	 * 后台分页查询
 	 */
-	@RequestMapping(value = "getAllInformation", method = RequestMethod.POST)
+	@RequestMapping(value = "getAllInformation", method = RequestMethod.GET)
 	@ResponseBody
 	public JSONResult getAllInformation(BaseConditionVO vo) {
 		List<Information> list = informationService.getInformationByPage(vo);

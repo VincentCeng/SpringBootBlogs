@@ -25,14 +25,14 @@ public class SaasplatformApplicationTests {
 	}
 	
 	@Test
-	private void test2() {
+	public void test2() {
 		/** 
 		 * @author 刘曾 
 		 * @version 2018年7月7日 下午9:46:57 
 		 */
 		System.out.println("进入。。。");
 		BaseConditionVO vo=new BaseConditionVO();
-		vo.setCount(1);
+		vo.setCount(3);
 		vo.setPage(1);
 		Page<User> list=userMapper.findByVo(vo);
 		for (User user : list) {
