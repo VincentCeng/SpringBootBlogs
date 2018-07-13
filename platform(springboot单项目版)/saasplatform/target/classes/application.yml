@@ -1,4 +1,0 @@
-# 切换不同环境，只需要修改spring.profiles.active即可
-spring:
-  profiles:
-    active: local

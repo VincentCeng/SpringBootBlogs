@@ -1,8 +1,0 @@
-package com.saas.admin.service;
-
-import com.saas.admin.model.Role;
-import java.util.List;
-
-public interface IUserRoleService {
-    List<Role> findUserRoles(String userId) ;
-}

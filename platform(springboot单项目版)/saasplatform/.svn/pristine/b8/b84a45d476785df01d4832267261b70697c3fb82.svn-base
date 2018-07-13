@@ -1,8 +1,0 @@
-package com.saas.admin.service;
-
-import com.saas.admin.model.Permission;
-import java.util.List;
-
-public interface IUserPermissionService {
-    List<Permission> findUserPerssion(String userId) ;
-}
